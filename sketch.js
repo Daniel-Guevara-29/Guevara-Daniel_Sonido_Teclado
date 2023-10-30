@@ -1,29 +1,81 @@
-let sonidoBurbuja;
+let sonidos = [];
 
-function preload () {
-  soundFormats ('wav', 'mp3', 'ogg');
-  sonidoBurbuja = loadSound( 'sonidos/burbuja');
+function preload() {
+	for (let i = 0; i < 5; i++) {
+		sonidos[i] = loadSound('sonidos/' + i + '.wav');
+	}
 }
-
-
-
 
 function setup() {
-  let cnv = createCanvas(windowWidth, windowHeight);
-  cnv.mouseClicked(presionado);
-
+	let cnv = createCanvas(windowWidth, windowHeight);
+	cnv.mouseClicked(presionado);
 }
 
-function presionado (){
-  sonidoBurbuja.play();
-  circle(mouseX, mouseY, 20);
+function presionado() {
+	let r = Math.floor(random(5));
+	circle(mouseX, mouseY, 20);
+
+	switch (r) {
+		case 0:
+			sonidos[0].play();
+			break;
+		case 1:
+			sonidos[1].play();
+			break;
+		case 2:
+			sonidos[2].play();
+			break;
+		case 3:
+			sonidos[3].play();
+			break;
+		case 4:
+			sonidos[4].play();
+			break;
+		
+	}
 }
 
-function draw() {
-  
-}
-
+function draw() {}
 function mouseDragged() {
-  sonidoBurbuja.play();
-  circle(mouseX, mouseY, 20) 
+	let r = Math.floor(random(5));
+	circle(mouseX, mouseY, 20);
+
+	switch (r) {
+		case 0:
+			sonidos[0].play();
+			break;
+		case 1:
+			sonidos[1].play();
+			break;
+		case 2:
+			sonidos[2].play();
+			break;
+		case 3:
+			sonidos[3].play();
+			break;
+		case 4:
+			sonidos[4].play();
+			break;
+		
+	}
+}
+
+function keyPressed() {
+	switch (key) {
+		case 'a':
+			sonidos[0].play();
+			break;
+		case 's':
+			sonidos[1].play();
+			break;
+		case 'd':
+			sonidos[2].play();
+			break;
+		case 'f':
+			sonidos[3].play();
+			break;
+		case 'g':
+			sonidos[4].play();
+			break;
+	}
 }
